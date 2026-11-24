@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Квиз WebWex — какой сайт вам нужен?</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z' fill='%237c8f3e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a8bd57"/><stop offset="1" stop-color="#6d7f36"/>
+      </linearGradient>
+      <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8a9c46"/><stop offset="1" stop-color="#4a5a28"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="jungle" id="jungle" aria-hidden="true">
+    <div class="vine-side vine-left">
+      <div class="vine-mirror">
+        <svg class="vine" viewBox="0 0 220 1000" preserveAspectRatio="xMidYMin slice" fill="none">
+          <path class="grow stem" pathLength="1" style="--d:.1s;--t:2.2s" d="M96-30C150 60 40 150 92 250C144 350 36 450 88 550C140 650 32 750 84 850C118 918 60 970 76 1040"/>
+          <path class="grow branch" pathLength="1" style="--d:1s;--t:1.1s" d="M92 250C130 240 160 210 176 170"/>
+          <path class="grow branch" pathLength="1" style="--d:1.4s;--t:1.1s" d="M88 550C60 540 34 512 24 470"/>
+          <g class="leaf" style="--d:1.2s" transform="translate(96 60) rotate(24)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.4s" transform="translate(70 150) rotate(156)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.6s" transform="translate(176 170) rotate(-38)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.8s" transform="translate(110 350) rotate(14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2s" transform="translate(24 470) rotate(-142)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.2s" transform="translate(112 650) rotate(10)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.4s" transform="translate(56 750) rotate(172)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.6s" transform="translate(96 930) rotate(28)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+        </svg>
+      </div>
+    </div>
+    <div class="vine-side vine-right">
+      <div class="vine-mirror">
+        <svg class="vine" viewBox="0 0 220 1000" preserveAspectRatio="xMidYMin slice" fill="none">
+          <path class="grow stem" pathLength="1" style="--d:.1s;--t:2.2s" d="M96-30C150 60 40 150 92 250C144 350 36 450 88 550C140 650 32 750 84 850C118 918 60 970 76 1040"/>
+          <path class="grow branch" pathLength="1" style="--d:1s;--t:1.1s" d="M92 250C130 240 160 210 176 170"/>
+          <path class="grow branch" pathLength="1" style="--d:1.4s;--t:1.1s" d="M88 550C60 540 34 512 24 470"/>
+          <g class="leaf" style="--d:1.2s" transform="translate(96 60) rotate(24)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.4s" transform="translate(70 150) rotate(156)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.6s" transform="translate(176 170) rotate(-38)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.8s" transform="translate(110 350) rotate(14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2s" transform="translate(24 470) rotate(-142)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.2s" transform="translate(112 650) rotate(10)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.4s" transform="translate(56 750) rotate(172)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.6s" transform="translate(96 930) rotate(28)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <header class="q-header">
+    <a href="../index.html" class="logo">
+      <svg viewBox="0 0 24 24" width="26" height="26"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="url(#leafGrad)"/></svg>
+      WebWex
+    </a>
+    <a href="../index.html" class="q-home">← На сайт</a>
+  </header>
+
+  <main class="q-shell">
+    <div class="q-card">
+      <div id="quizBox">
+        <span class="kicker">Квиз WebWex · 1 минута</span>
+        <div class="q-progress"><div class="q-fill" id="qFill"></div></div>
+        <div class="q-meta">
+          <span id="qLabel">Вопрос 1 из 7</span>
+          <button class="q-back" id="qBack" disabled>← Назад</button>
+        </div>
+        <div id="qBody"></div>
+      </div>
+
+      <div id="resultBox" hidden>
+        <span class="kicker">Вам подходит</span>
+        <div class="res-head">
+          <span class="res-emoji" id="resEmoji">🌱</span>
+          <h1 id="resName"></h1>
+        </div>
+        <p class="res-why" id="resWhy"></p>
+        <div class="price-row">
+          <div class="p-box" id="boxCode">
+            <span class="p-flag" id="flagCode" hidden>ваш выбор</span>
+            <small>Индивидуально, на коде</small>
+            <b id="resPriceCode"></b>
+          </div>
+          <div class="p-box" id="boxTilda">
+            <span class="p-flag" id="flagTilda" hidden>выгода −20%</span>
+            <small>На Тильде, −20%</small>
+            <b id="resPriceTilda"></b>
+          </div>
+        </div>
+        <p class="res-gift">🎁 Первые 2 недели техподдержки — бесплатно.</p>
+        <div class="ans-chips" id="resChips"></div>
+        <div class="res-btns">
+          <a class="btn btn-primary" id="resOrder" href="../index.html#contacts">Заказать этот сайт</a>
+          <button class="btn btn-ghost" id="resRestart">Пройти ещё раз</button>
+        </div>
+      </div>
+    </div>
+    <p class="q-note">Результат — рекомендация, а не приговор 🌿 Финальный формат подберём вместе в переписке.</p>
+  </main>
+
+  <script src="quiz.js"></script>
+</body>
+</html>

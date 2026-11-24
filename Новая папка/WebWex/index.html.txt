@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebWex — сайты для самозанятых | Тильда и код</title>
+  <meta name="description" content="WebWex создаёт сайты для психологов, сантехников, коучей и репетиторов. Лендинги, каталоги, блоги. Тильда на 20% дешевле.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z' fill='%237c8f3e'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Общие градиенты для лиан -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#a8bd57"/><stop offset="1" stop-color="#6d7f36"/>
+      </linearGradient>
+      <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#8a9c46"/><stop offset="1" stop-color="#4a5a28"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div id="progress"></div>
+
+  <!-- 🌿 Джунгли: лианы по бокам -->
+  <div class="jungle" id="jungle" aria-hidden="true">
+    <div class="vine-side vine-left">
+      <div class="vine-mirror">
+        <svg class="vine" viewBox="0 0 220 1000" preserveAspectRatio="xMidYMin slice" fill="none">
+          <path class="grow stem" pathLength="1" style="--d:.15s;--t:2.6s" d="M96-30C150 60 40 150 92 250C144 350 36 450 88 550C140 650 32 750 84 850C118 918 60 970 76 1040"/>
+          <path class="grow branch" pathLength="1" style="--d:1.15s;--t:1.2s" d="M92 250C130 240 160 210 176 170"/>
+          <path class="grow branch" pathLength="1" style="--d:1.5s;--t:1.2s" d="M88 550C60 540 34 512 24 470"/>
+          <path class="grow branch" pathLength="1" style="--d:1.85s;--t:1.2s" d="M84 850C120 842 150 815 168 775"/>
+          <path class="grow tendril" pathLength="1" style="--d:2.3s;--t:1s" d="M100 120c18-6 30 4 26 18c-3 11-16 12-20 3c-3-7 4-12 9-9"/>
+          <path class="grow tendril" pathLength="1" style="--d:2.5s;--t:1s" d="M92 585c-20 2-30 14-24 26c5 10 18 8 20-1c2-8-6-12-11-8"/>
+          <g class="leaf" style="--d:1.35s" transform="translate(96 60) rotate(24)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.5s" transform="translate(70 150) rotate(156)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.7s" transform="translate(176 170) rotate(-38)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.85s" transform="translate(140 226) rotate(-18)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2s" transform="translate(110 350) rotate(14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.15s" transform="translate(60 450) rotate(168)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.3s" transform="translate(24 470) rotate(-142)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.45s" transform="translate(52 522) rotate(158)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.55s" transform="translate(112 650) rotate(10)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.65s" transform="translate(56 750) rotate(172)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.75s" transform="translate(168 775) rotate(-34)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.85s" transform="translate(132 824) rotate(-14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.95s" transform="translate(96 930) rotate(28)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+        </svg>
+      </div>
+    </div>
+    <div class="vine-side vine-right">
+      <div class="vine-mirror">
+        <svg class="vine" viewBox="0 0 220 1000" preserveAspectRatio="xMidYMin slice" fill="none">
+          <path class="grow stem" pathLength="1" style="--d:.15s;--t:2.6s" d="M96-30C150 60 40 150 92 250C144 350 36 450 88 550C140 650 32 750 84 850C118 918 60 970 76 1040"/>
+          <path class="grow branch" pathLength="1" style="--d:1.15s;--t:1.2s" d="M92 250C130 240 160 210 176 170"/>
+          <path class="grow branch" pathLength="1" style="--d:1.5s;--t:1.2s" d="M88 550C60 540 34 512 24 470"/>
+          <path class="grow branch" pathLength="1" style="--d:1.85s;--t:1.2s" d="M84 850C120 842 150 815 168 775"/>
+          <path class="grow tendril" pathLength="1" style="--d:2.3s;--t:1s" d="M100 120c18-6 30 4 26 18c-3 11-16 12-20 3c-3-7 4-12 9-9"/>
+          <path class="grow tendril" pathLength="1" style="--d:2.5s;--t:1s" d="M92 585c-20 2-30 14-24 26c5 10 18 8 20-1c2-8-6-12-11-8"/>
+          <g class="leaf" style="--d:1.35s" transform="translate(96 60) rotate(24)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.5s" transform="translate(70 150) rotate(156)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.7s" transform="translate(176 170) rotate(-38)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:1.85s" transform="translate(140 226) rotate(-18)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2s" transform="translate(110 350) rotate(14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.15s" transform="translate(60 450) rotate(168)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.3s" transform="translate(24 470) rotate(-142)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.45s" transform="translate(52 522) rotate(158)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.55s" transform="translate(112 650) rotate(10)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.65s" transform="translate(56 750) rotate(172)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.75s" transform="translate(168 775) rotate(-34)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.85s" transform="translate(132 824) rotate(-14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+          <g class="leaf" style="--d:2.95s" transform="translate(96 930) rotate(28)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- Шапка -->
+  <header class="site-header" id="header">
+    <div class="wrap header-inner">
+      <a href="#hero" class="logo">
+        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="url(#leafGrad)"/><path d="M6 18C9 13 13 9 18 6" stroke="#2e3d1c" stroke-width="1.4" fill="none"/></svg>
+        WebWex
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#pricing">Тарифы</a>
+        <a href="#promotion">Продвижение</a>
+        <a href="#support">Поддержка</a>
+        <a href="quiz/index.html">Квиз</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a href="#contacts" class="btn btn-primary btn-sm header-cta">Обсудить проект</a>
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section id="hero">
+      <div class="wrap">
+        <span class="hero-badge">🌿 Веб-студия для самозанятых</span>
+        <h1>
+          <span class="w" style="--i:0">Выращиваем</span>
+          <span class="w" style="--i:1">сайты,</span>
+          <span class="w" style="--i:2">которые</span>
+          <span class="w grad" style="--i:3">приносят</span>
+          <span class="w grad" style="--i:4">клиентов</span>
+        </h1>
+        <p class="hero-sub">WebWex делает сайты для психологов, сантехников, коучей и репетиторов — на Тильде или чистым кодом. Сочный дизайн, живые анимации и заявки уже через неделю.</p>
+        <div class="hero-cta">
+          <a href="quiz/index.html" class="btn btn-primary magnetic">🌿 Пройти квиз за 1 минуту</a>
+          <a href="#pricing" class="btn btn-ghost magnetic">Смотреть тарифы</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">−<b data-count="20">0</b>%</span><span class="stat-label">на Тильде</span></div>
+          <div class="stat"><span class="stat-num"><b data-count="14">0</b> дней</span><span class="stat-label">поддержки в подарок</span></div>
+          <div class="stat"><span class="stat-num">от <b data-count="5">0</b></span><span class="stat-label">дней до запуска</span></div>
+          <div class="stat"><span class="stat-num"><b data-count="7">0</b></span><span class="stat-label">вопросов в квизе</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Бегущая строка -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-half">
+          <span>🌿 Психологи</span><span>🌿 Сантехники</span><span>🌿 Коучи</span><span>🌿 Репетиторы</span><span>🌿 Бьюти-мастера</span><span>🌿 Фотографы</span><span>🌿 Электрики</span><span>🌿 Массажисты</span><span>🌿 Логопеды</span><span>🌿 Няни</span><span>🌿 Хендмейд</span><span>🌿 Консультанты</span>
+        </div>
+        <div class="marquee-half">
+          <span>🌿 Психологи</span><span>🌿 Сантехники</span><span>🌿 Коучи</span><span>🌿 Репетиторы</span><span>🌿 Бьюти-мастера</span><span>🌿 Фотографы</span><span>🌿 Электрики</span><span>🌿 Массажисты</span><span>🌿 Логопеды</span><span>🌿 Няни</span><span>🌿 Хендмейд</span><span>🌿 Консультанты</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Для кого -->
+    <section class="section" id="audience">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Для кого</span>
+          <h2>Сайты для тех, кто работает на себя</h2>
+          <p class="sec-sub">Знаем специфику вашей ниши и говорим с вашими клиентами на одном языке.</p>
+        </div>
+        <div class="audience-grid">
+          <article class="card tilt reveal" style="--d:.05s"><span class="a-ico">🧠</span><h3>Психологи и коучи</h3><p>Спокойный дизайн, онлайн-запись и блог, который вызывает доверие ещё до первой сессии.</p></article>
+          <article class="card tilt reveal" style="--d:.12s"><span class="a-ico">🔧</span><h3>Сантехники и мастера</h3><p>Кнопка «Вызвать мастера», прайс и отзывы. Клиент звонит, пока у соседа течёт кран.</p></article>
+          <article class="card tilt reveal" style="--d:.19s"><span class="a-ico">📚</span><h3>Репетиторы</h3><p>Программа, результаты учеников и запись на пробный урок — без лишних переписок.</p></article>
+          <article class="card tilt reveal" style="--d:.05s"><span class="a-ico">💅</span><h3>Бьюти-мастера</h3><p>Портфолио работ, прайс и онлайн-запись, которая заполняет окошки сама.</p></article>
+          <article class="card tilt reveal" style="--d:.12s"><span class="a-ico">📸</span><h3>Фотографы и творческие</h3><p>Галереи, которые хочется листать, и пакеты услуг, которые хочется купить.</p></article>
+          <article class="card tilt reveal" style="--d:.19s"><span class="a-ico">🌿</span><h3>Другие самозанятые</h3><p>Няни, электрики, массажисты, консультанты — соберём сайт под любую нишу.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Как мы работаем -->
+    <section class="section" id="process">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Как мы работаем</span>
+          <h2>От заявки до запуска — 4 шага</h2>
+        </div>
+        <div class="steps reveal">
+          <div class="step"><span class="step-num">1</span><h3>Заявка и квиз</h3><p>Проходите квиз или пишете нам в соцсети — подбираем формат сайта.</p></div>
+          <div class="step"><span class="step-num">2</span><h3>Прототип и дизайн</h3><p>Согласуем структуру и стиль. Вы видите сайт до сборки.</p></div>
+          <div class="step"><span class="step-num">3</span><h3>Сборка и анимации</h3><p>Тильда или код, адаптив под телефон, формы и живые анимации.</p></div>
+          <div class="step"><span class="step-num">4</span><h3>Запуск и поддержка</h3><p>Публикуем сайт и дарим 2 недели техподдержки.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🌿 Блок-тизер квиза -->
+    <section class="section" id="quiz-block">
+      <div class="wrap">
+        <div class="quiz-cta reveal reveal-zoom">
+          <div class="quiz-cta-text">
+            <span class="kicker">Квиз · 1 минута</span>
+            <h2>Не знаете, какой сайт вам нужен?</h2>
+            <p>Ответьте на 7 вопросов — покажем идеальный формат сайта под вашу нишу, цели и бюджет. Сразу с ценой и скидкой −20% на Тильде.</p>
+            <a href="quiz/index.html" class="btn btn-primary magnetic">🌿 Пройти квиз</a>
+          </div>
+          <div class="orbit" aria-hidden="true">
+            <div class="orbit-core">?</div>
+            <span class="orbit-item" style="--a:0deg;--t:14s">💻</span>
+            <span class="orbit-item" style="--a:90deg;--t:14s">📱</span>
+            <span class="orbit-item" style="--a:180deg;--t:14s">✉️</span>
+            <span class="orbit-item" style="--a:270deg;--t:14s">🌿</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Тарифы на сайты -->
+    <section class="section" id="pricing">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Тарифы на сайты</span>
+          <h2>Выберите свой сайт</h2>
+          <p class="sec-sub">Код — полная уникальность. Тильда — быстрее и на 20% дешевле: цена со скидкой уже на кнопке.</p>
+        </div>
+        <div class="plans-grid">
+          <article class="card plan tilt reveal" style="--d:.05s">
+            <span class="kicker">Тариф «Росток»</span>
+            <h3>Одностраничный сайт</h3>
+            <div class="price"><small>от</small> 9 999 ₽</div>
+            <ul>
+              <li>1 продающая страница</li>
+              <li>Адаптив под все экраны</li>
+              <li>Форма заявки + кнопки мессенджеров</li>
+              <li>Базовая SEO-настройка</li>
+              <li>Запуск от 5 дней</li>
+              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
+            </ul>
+            <div class="plan-btns">
+              <a href="#contacts" class="btn btn-primary" data-order="landing" data-platform="code">Заказать</a>
+              <a href="#contacts" class="btn btn-tilda" data-order="landing" data-platform="tilda">Заказать на Тильде<small>−20% · от 7 999 ₽</small></a>
+            </div>
+          </article>
+
+          <article class="card plan popular tilt reveal" style="--d:.12s">
+            <span class="badge">Выбирают чаще</span>
+            <span class="kicker">Тариф «Лиана»</span>
+            <h3>Многостраничный сайт</h3>
+            <div class="price"><small>от</small> 18 999 ₽</div>
+            <ul>
+              <li>До 7 страниц: услуги, обо мне, цены</li>
+              <li>Единый стиль и живые анимации</li>
+              <li>Формы заявок на каждой странице</li>
+              <li>SEO-структура под поиск</li>
+              <li>Запуск от 10 дней</li>
+              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
+            </ul>
+            <div class="plan-btns">
+              <a href="#contacts" class="btn btn-primary" data-order="multi" data-platform="code">Заказать</a>
+              <a href="#contacts" class="btn btn-tilda" data-order="multi" data-platform="tilda">Заказать на Тильде<small>−20% · от 15 199 ₽</small></a>
+            </div>
+          </article>
+
+          <article class="card plan tilt reveal" style="--d:.19s">
+            <span class="kicker">Тариф «Крона»</span>
+            <h3>Сайт-каталог</h3>
+            <div class="price">21 999 ₽</div>
+            <ul>
+              <li>Карточки товаров и услуг</li>
+              <li>Фильтры, поиск, категории</li>
+              <li>Корзина или заявка в 1 клик</li>
+              <li>Обучение управлению каталогом</li>
+              <li>Запуск от 12 дней</li>
+              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
+            </ul>
+            <div class="plan-btns">
+              <a href="#contacts" class="btn btn-primary" data-order="catalog" data-platform="code">Заказать</a>
+              <a href="#contacts" class="btn btn-tilda" data-order="catalog" data-platform="tilda">Заказать на Тильде<small>−20% · 17 599 ₽</small></a>
+            </div>
+          </article>
+
+          <article class="card plan tilt reveal" style="--d:.26s">
+            <span class="kicker">Тариф «Баобаб»</span>
+            <h3>Сайт-блог</h3>
+            <div class="price"><small>от</small> 23 999 ₽</div>
+            <ul>
+              <li>Статьи, рубрики, теги</li>
+              <li>Подписка и соцсети</li>
+              <li>SEO под информационные запросы</li>
+              <li>Удобная админка — пишите без программиста</li>
+              <li>Запуск от 12 дней</li>
+              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
+            </ul>
+            <div class="plan-btns">
+              <a href="#contacts" class="btn btn-primary" data-order="blog" data-platform="code">Заказать</a>
+              <a href="#contacts" class="btn btn-tilda" data-order="blog" data-platform="tilda">Заказать на Тильде<small>−20% · от 19 199 ₽</small></a>
+            </div>
+          </article>
+        </div>
+        <div class="bonus-banner reveal">🎁 К каждому сайту — первые 2 недели техподдержки бесплатно. Дальше — по тарифам ниже.</div>
+      </div>
+    </section>
+
+    <!-- Продвижение -->
+    <section class="section" id="promotion">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Продвижение</span>
+          <h2>Чтобы клиенты находили вас сами</h2>
+          <p class="sec-sub">Стартовые цены — точную смету соберём после бесплатного аудита вашей ниши.</p>
+        </div>
+        <div class="trio-grid">
+          <article class="card plan tilt reveal" style="--d:.05s">
+            <span class="kicker">Тариф «Всходы»</span>
+            <div class="price"><small>от</small> 4 999 ₽ <small>/ мес</small></div>
+            <ul>
+              <li>Яндекс Бизнес и карты</li>
+              <li>Базовое SEO сайта</li>
+              <li>Подключение аналитики</li>
+              <li>Отчёт раз в месяц</li>
+            </ul>
+            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="promo1">Заказать</a></div>
+          </article>
+          <article class="card plan popular tilt reveal" style="--d:.12s">
+            <span class="badge">Хит</span>
+            <span class="kicker">Тариф «Заросли»</span>
+            <div class="price"><small>от</small> 9 999 ₽ <small>/ мес</small></div>
+            <ul>
+              <li>Всё из «Всходов»</li>
+              <li>SEO по вашим запросам</li>
+              <li>2 статьи в месяц</li>
+              <li>Размещение в справочниках</li>
+              <li>Отчёт каждые 2 недели</li>
+            </ul>
+            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="promo2">Заказать</a></div>
+          </article>
+          <article class="card plan tilt reveal" style="--d:.19s">
+            <span class="kicker">Тариф «Джунгли»</span>
+            <div class="price"><small>от</small> 19 999 ₽ <small>/ мес</small></div>
+            <ul>
+              <li>Всё из «Зарослей»</li>
+              <li>Настройка и ведение рекламы</li>
+              <li>Оформление соцсетей</li>
+              <li>A/B-тесты страниц</li>
+              <li>Личный менеджер</li>
+            </ul>
+            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="promo3">Заказать</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Техподдержка -->
+    <section class="section" id="support">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Техподдержка</span>
+          <h2>Ваш сайт всегда в форме</h2>
+          <p class="sec-sub">Доработки, правки и обновления. Часы обновляются каждый месяц.</p>
+        </div>
+        <div class="trio-grid">
+          <article class="card plan tilt reveal" style="--d:.05s">
+            <span class="kicker">Тариф «Роса»</span>
+            <div class="price">Free</div>
+            <div class="hours">30 минут</div>
+            <p class="hours-sub">доработок в месяц</p>
+            <ul>
+              <li>Мелкие правки текста и фото</li>
+              <li>Ответы на вопросы в чате</li>
+              <li>Идеально на старте</li>
+            </ul>
+            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="sup0">Заказать</a></div>
+          </article>
+          <article class="card plan popular tilt reveal" style="--d:.12s">
+            <span class="badge">Оптимально</span>
+            <span class="kicker">Тариф «Ручей»</span>
+            <div class="price">4 999 ₽ <small>/ мес</small></div>
+            <div class="hours">1,5 часа</div>
+            <p class="hours-sub">доработок в месяц</p>
+            <ul>
+              <li>Обновление цен и контента</li>
+              <li>Ежемесячный бэкап</li>
+              <li>Приоритетные ответы</li>
+            </ul>
+            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="sup1">Заказать</a></div>
+          </article>
+          <article class="card plan tilt reveal" style="--d:.19s">
+            <span class="kicker">Тариф «Водопад»</span>
+            <div class="price">9 999 ₽ <small>/ мес</small></div>
+            <div class="hours">4 часа</div>
+            <p class="hours-sub">доработок в месяц</p>
+            <ul>
+              <li>Новые блоки и страницы</li>
+              <li>Мини-аналитика каждый месяц</li>
+              <li>Срочные правки вне очереди</li>
+            </ul>
+            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="sup2">Заказать</a></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="section" id="contacts">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <span class="kicker">Контакты</span>
+          <h2>Обсудим ваш проект?</h2>
+          <p class="sec-sub">Напишите в удобную соцсеть — поможем выбрать тариф и бесплатно посчитаем смету.</p>
+        </div>
+        <div class="order-chip" id="orderChip">🌿 Ваш выбор: <b id="orderChipText"></b></div>
+        <div class="contact-grid">
+          <a class="contact-card reveal" style="--d:.05s" href="https://vk.ru/club241697288" target="_blank" rel="noopener">
+            <span class="c-ico vk">VK</span>
+            <span><b>ВКонтакте</b><small>Написать в группу WebWex</small></span>
+            <span class="c-arrow">→</span>
+          </a>
+          <a class="contact-card reveal" style="--d:.12s" href="https://www.instagram.com/invites/contact/utm_source=ig_contact_invite&amp;utm_medium=copy_link&amp;utm_content=sjn376n" target="_blank" rel="noopener">
+            <span class="c-ico ig">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span><b>Instagram*</b><small>Написать в Direct</small></span>
+            <span class="c-arrow">→</span>
+          </a>
+        </div>
+        <p class="footnote">*Instagram принадлежит Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <a href="#hero" class="logo">
+        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="url(#leafGrad)"/></svg>
+        WebWex
+      </a>
+      <nav class="footer-nav">
+        <a href="#pricing">Тарифы</a><a href="quiz/index.html">Квиз</a><a href="#contacts">Контакты</a>
+      </nav>
+      <p>© <span id="year"></span> WebWex · Сайты для самозанятых · Сделано с 🌿</p>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="Наверх">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 19V6M6 12l6-6 6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
