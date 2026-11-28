@@ -1,0 +1,425 @@
+// ==========================================================================
+// Логика сайта студии WebWex (папка js/app.js)
+// ==========================================================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.lucide) lucide.createIcons();
+    initScrollReveal();
+});
+
+// 1. Анимации появления при прокрутке и прогресс-бар
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('active');
+                }, (index % 4) * 80);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(el => observer.observe(el));
+}
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    const progressEl = document.getElementById('scroll-progress');
+    if (progressEl) progressEl.style.width = scrollPercent + '%';
+
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+        if (scrollTop > 40) {
+            navbar.classList.add('shadow-md', 'bg-white/95');
+        } else {
+            navbar.classList.remove('shadow-md', 'bg-white/95');
+        }
+    }
+});
+
+// 2. Переключение между Главной страницей и Отдельной страницей Квиза
+function switchPage(pageName) {
+    const homePage = document.getElementById('page-home');
+    const quizPage = document.getElementById('page-quiz');
+
+    if (pageName === 'quiz') {
+        homePage.classList.add('hidden');
+        quizPage.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        renderQuizStep();
+    } else {
+        quizPage.classList.add('hidden');
+        homePage.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(initScrollReveal, 100);
+    }
+    if (window.lucide) lucide.createIcons();
+}
+
+function navigateToSection(sectionId) {
+    const homePage = document.getElementById('page-home');
+    if (homePage.classList.contains('hidden')) {
+        switchPage('home');
+        setTimeout(() => {
+            const el = document.getElementById(sectionId);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+    } else {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+// 3. Конфигурация Telegram-бота WebWex (@Pchoweb_bot)
+const TG_BOT_TOKEN = '9109400142:AAHNclr94GXm7mDquHaoB_PwwvA7N36VrWs';
+const TG_CHAT_ID = '6334141798';
+
+async function submitOrderForm(event) {
+    event.preventDefault();
+    const nameVal = document.getElementById('lead-name').value.trim();
+    const contactVal = document.getElementById('lead-contact').value.trim();
+    const commentVal = document.getElementById('lead-comment').value.trim();
+    const submitBtn = document.getElementById('lead-submit-btn') || event.target.querySelector('button[type="submit"]');
+
+    const originalBtnText = submitBtn ? submitBtn.textContent : 'Отправить заявку в WebWex';
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Отправляем заявку...';
+    }
+
+    const messageText = [
+        '🌿 Новая заявка с сайта WebWex!',
+        '',
+        `👤 Имя: ${nameVal}`,
+        `📞 Контакт: ${contactVal}`,
+        `📝 Комментарий / Тариф:\n${commentVal || 'Не указан'}`
+    ].join('\n');
+
+    try {
+        const response = await fetch(`https://api.telegram.org/bot${TG_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                chat_id: TG_CHAT_ID,
+                text: messageText
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error('Telegram API error');
+        }
+
+        const summaryBox = document.getElementById('submitted-summary');
+        if (commentVal) {
+            summaryBox.textContent = `Ваш запрос: ${commentVal}`;
+            summaryBox.classList.remove('hidden');
+        } else {
+            summaryBox.classList.add('hidden');
+        }
+
+        document.getElementById('lead-name').value = '';
+        document.getElementById('lead-contact').value = '';
+
+        document.getElementById('modal-form-content').classList.add('hidden');
+        document.getElementById('modal-success-content').classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
+    } catch (error) {
+        console.error('Ошибка отправки в Telegram:', error);
+        const summaryBox = document.getElementById('submitted-summary');
+        summaryBox.textContent = 'Не удалось отправить автоматически. Пожалуйста, напишите нам напрямую в Telegram (@Pchoweb_bot) или ВК.';
+        summaryBox.classList.remove('hidden');
+        document.getElementById('modal-form-content').classList.add('hidden');
+        document.getElementById('modal-success-content').classList.remove('hidden');
+        if (window.lucide) lucide.createIcons();
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalBtnText;
+        }
+    }
+}
+
+// Открытие / закрытие мобильного меню
+function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    menu.classList.toggle('hidden');
+}
+
+// 4. База вопросов и логика Квиза (4 шага -> расчёт связки тарифов)
+const quizQuestions = [
+    {
+        title: "Чем вы занимаетесь как самозанятый?",
+        subtitle: "Это поможет определить правильную структуру страниц и подачи:",
+        options: [
+            { label: "Услуги (бьюти, ремонт, фото, репетиторство)", desc: "Нужны заявки на запись и доверие", icon: "sparkles" },
+            { label: "Продажа товаров / ручная работа / кондитер", desc: "Нужна витрина изделий с ценами", icon: "shopping-bag" },
+            { label: "Экспертный блог / консультации / психология", desc: "Нужны статьи и прогрев аудитории", icon: "book-open" },
+            { label: "Много направлений услуг / мини-студия", desc: "Нужен подробный разбор каждой услуги", icon: "layers" }
+        ]
+    },
+    {
+        title: "Сколько у вас сейчас услуг или товаров?",
+        subtitle: "От объёма ассортимента зависит тип архитектуры сайта:",
+        options: [
+            { label: "1–3 основные услуги", desc: "Подойдёт компактный и чёткий формат", icon: "check-circle" },
+            { label: "От 4 до 15 разных услуг", desc: "Важно разделить услуги по страницам для SEO", icon: "grid" },
+            { label: "Более 15 товаров или позиций", desc: "Потребуется удобный каталог с категориями", icon: "package" },
+            { label: "Хочу вести регулярный блог со статьями", desc: "Сделаем упор на контент-маркетинг", icon: "pen-tool" }
+        ]
+    },
+    {
+        title: "Как планируете обновлять информацию на сайте?",
+        subtitle: "Подберём тариф техподдержки после 2 бесплатных недель:",
+        options: [
+            { label: "Редко — пару раз поменять цены или фото", desc: "Достаточно базового бесплатного тарифа", icon: "clock" },
+            { label: "Регулярно — добавлять акции, фото и блоки", desc: "Оптимально 1.5 часа работы специалиста в месяц", icon: "sliders" },
+            { label: "Активно развивать — новые страницы и фичи", desc: "Максимум внимания: 4 часа доработок в месяц", icon: "zap" },
+            { label: "Пока не знаю, хочу начать с бесплатного", desc: "Начнём с 2 недель бонуса и тарифа Free", icon: "gift" }
+        ]
+    },
+    {
+        title: "Какая у вас цель по продвижению в поиске (SEO)?",
+        subtitle: "Определим интенсивность роста позиций в Яндексе и Google:",
+        options: [
+            { label: "Бюджетный старт по моему району / городу", desc: "Плавный выход в поиск без больших вложений", icon: "map-pin" },
+            { label: "Стабильный поток клиентов каждый месяц", desc: "Системное SEO по всему городу / региону", icon: "trending-up" },
+            { label: "Максимальный охват и обогнать конкурентов", desc: "Агрессивный рост по всей России или мегаполису", icon: "flame" },
+            { label: "Сначала только сайт, SEO подключу позже", desc: "Сделаем базовую SEO-подготовку при запуске", icon: "compass" }
+        ]
+    }
+];
+
+let currentQuizStep = 0;
+let quizAnswers = [];
+let calculatedPackageText = "";
+
+function startQuizWithPreset(firstAnswerIndex) {
+    quizAnswers = [firstAnswerIndex];
+    currentQuizStep = 1;
+    switchPage('quiz');
+}
+
+function renderQuizStep() {
+    const questionArea = document.getElementById('quiz-question-area');
+    const resultArea = document.getElementById('quiz-result-area');
+    const progressContainer = document.getElementById('quiz-progress-container');
+
+    questionArea.classList.remove('hidden');
+    resultArea.classList.add('hidden');
+    progressContainer.classList.remove('hidden');
+
+    const q = quizQuestions[currentQuizStep];
+    const total = quizQuestions.length;
+    const percent = Math.round(((currentQuizStep + 1) / total) * 100);
+
+    document.getElementById('quiz-step-label').textContent = `Вопрос ${currentQuizStep + 1} из ${total}`;
+    document.getElementById('quiz-percent-label').textContent = `${percent}%`;
+    document.getElementById('quiz-progress-bar').style.width = `${percent}%`;
+
+    document.getElementById('quiz-question-title').textContent = q.title;
+    document.getElementById('quiz-question-subtitle').textContent = q.subtitle;
+
+    const grid = document.getElementById('quiz-options-grid');
+    grid.innerHTML = '';
+
+    q.options.forEach((opt, idx) => {
+        const isSelected = quizAnswers[currentQuizStep] === idx;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.onclick = () => selectQuizOption(idx);
+        btn.className = `text-left p-5 rounded-3xl border transition-all duration-200 flex items-start gap-4 group ${
+            isSelected
+                ? 'bg-olive text-white border-olive shadow-lg'
+                : 'bg-beige-light hover:bg-olive hover:text-white text-olive border-olive/10'
+        }`;
+        btn.innerHTML = `
+            <div class="w-11 h-11 rounded-2xl ${isSelected ? 'bg-terracotta text-white' : 'bg-white text-terracotta group-hover:bg-terracotta group-hover:text-white'} flex items-center justify-center shrink-0 transition-colors">
+                <i data-lucide="${opt.icon}" class="w-5 h-5"></i>
+            </div>
+            <div>
+                <div class="font-display font-bold text-base sm:text-lg leading-snug mb-1">${opt.label}</div>
+                <div class="text-xs ${isSelected ? 'text-beige/80' : 'text-olive/65 group-hover:text-beige/80'}">${opt.desc}</div>
+            </div>
+        `;
+        grid.appendChild(btn);
+    });
+
+    const prevBtn = document.getElementById('quiz-prev-btn');
+    if (currentQuizStep > 0) {
+        prevBtn.classList.remove('hidden');
+    } else {
+        prevBtn.classList.add('hidden');
+    }
+
+    lucide.createIcons();
+}
+
+function selectQuizOption(optionIndex) {
+    quizAnswers[currentQuizStep] = optionIndex;
+    if (currentQuizStep < quizQuestions.length - 1) {
+        currentQuizStep++;
+        renderQuizStep();
+    } else {
+        showQuizResults();
+    }
+}
+
+function prevQuizStep() {
+    if (currentQuizStep > 0) {
+        currentQuizStep--;
+        renderQuizStep();
+    }
+}
+
+function resetQuiz() {
+    currentQuizStep = 0;
+    quizAnswers = [];
+    renderQuizStep();
+}
+
+function showQuizResults() {
+    document.getElementById('quiz-question-area').classList.add('hidden');
+    document.getElementById('quiz-progress-container').classList.add('hidden');
+    document.getElementById('quiz-result-area').classList.remove('hidden');
+
+    const [niche, volume, supportPref, seoPref] = quizAnswers;
+
+    // 1. Подбор типа сайта
+    let site = {
+        name: "Одностраничный сайт (Landing Page)",
+        price: "от 9 999 ₽",
+        desc: "Быстрый и яркий старт для презентации ваших услуг и сбора заявок без лишних затрат."
+    };
+
+    if (niche === 1 || volume === 2) {
+        site = {
+            name: "Сайт-каталог",
+            price: "от 21 999 ₽",
+            desc: "Удобная витрина ваших товаров с категориями, фото, ценами и быстрым заказом."
+        };
+    } else if (niche === 2 || volume === 3) {
+        site = {
+            name: "Сайт-блог",
+            price: "от 23 999 ₽",
+            desc: "Идеальная платформа для эксперта: статьи привлекают клиентов из поиска, а кейсы продают консультации."
+        };
+    } else if (niche === 3 || volume === 1) {
+        site = {
+            name: "Многостраничный сайт",
+            price: "от 18 999 ₽",
+            desc: "Отдельная страница под каждую вашу услугу — лучший фундамент для выхода в ТОП Яндекса."
+        };
+    }
+
+    // 2. Подбор техподдержки
+    let support = {
+        name: "Тариф Free",
+        price: "0 ₽ / мес",
+        desc: "После 2 бесплатных недель у вас останется 30 минут доработок в месяц бесплатно."
+    };
+    if (supportPref === 1) {
+        support = {
+            name: "Поддержка Стандарт",
+            price: "4 999 ₽ / мес",
+            desc: "1.5 часа доработок ежемесячно для добавления акций, новых фото и обновления блоков."
+        };
+    } else if (supportPref === 2) {
+        support = {
+            name: "Поддержка Профи",
+            price: "9 999 ₽ / мес",
+            desc: "4 часа работы специалиста в месяц для активного расширения сайта и новых страниц."
+        };
+    }
+
+    // 3. Подбор SEO
+    let seo = {
+        name: "SEO Старт (5к)",
+        price: "5 000 ₽ / мес",
+        desc: "Базовая оптимизация и продвижение по ключевым запросам в вашем городе."
+    };
+    if (seoPref === 1) {
+        seo = {
+            name: "SEO Рост (15к)",
+            price: "15 000 ₽ / мес",
+            desc: "Системное продвижение по 120 запросам + написание SEO-статей для стабильных заявок."
+        };
+    } else if (seoPref === 2) {
+        seo = {
+            name: "SEO Максимум (30к)",
+            price: "30 000 ₽ / мес",
+            desc: "Полный охват ниши (300+ запросов), регулярный контент и усиление позиций в ТОПе."
+        };
+    }
+
+    document.getElementById('res-site-name').textContent = site.name;
+    document.getElementById('res-site-price').textContent = site.price;
+    document.getElementById('res-site-desc').textContent = site.desc;
+
+    document.getElementById('res-support-name').textContent = support.name;
+    document.getElementById('res-support-price').textContent = support.price;
+    document.getElementById('res-support-desc').textContent = support.desc;
+
+    document.getElementById('res-seo-name').textContent = seo.name;
+    document.getElementById('res-seo-price').textContent = seo.price;
+    document.getElementById('res-seo-desc').textContent = seo.desc;
+
+    calculatedPackageText = `Квиз-подбор: ${site.name} (${site.price}) + ${support.name} (${support.price}) + ${seo.name} (${seo.price})`;
+    lucide.createIcons();
+}
+
+function openQuizResultModal() {
+    openOrderModal(calculatedPackageText);
+}
+
+// 5. Модальное окно заявки с автозаполнением комментария выбранным тарифом
+function openOrderModal(tariffTitle) {
+    const modal = document.getElementById('order-modal');
+    const commentField = document.getElementById('lead-comment');
+
+    if (tariffTitle) {
+        commentField.value = `Интересует тариф: ${tariffTitle}.\nПодарок: + 2 недели бесплатной техподдержки.`;
+    } else {
+        commentField.value = '';
+    }
+
+    document.getElementById('modal-form-content').classList.remove('hidden');
+    document.getElementById('modal-success-content').classList.add('hidden');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    lucide.createIcons();
+}
+
+function closeOrderModal() {
+    const modal = document.getElementById('order-modal');
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+}
+
+// 6. Аккордеон FAQ
+function toggleFaq(index) {
+    const content = document.getElementById(`faq-content-${index}`);
+    const icon = document.getElementById(`faq-icon-${index}`);
+    const isHidden = content.classList.contains('hidden');
+
+    if (isHidden) {
+        content.classList.remove('hidden');
+        icon.style.transform = 'rotate(45deg)';
+    } else {
+        content.classList.add('hidden');
+        icon.style.transform = 'rotate(0deg)';
+    }
+}
+
+// Закрытие модального окна по клику вне формы
+const orderModalEl = document.getElementById('order-modal');
+if (orderModalEl) {
+    orderModalEl.addEventListener('click', (e) => {
+        if (e.target.id === 'order-modal') {
+            closeOrderModal();
+        }
+    });
+}
