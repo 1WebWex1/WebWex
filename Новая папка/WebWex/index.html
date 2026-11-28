@@ -1,429 +1,395 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WebWex — сайты для самозанятых | Тильда и код</title>
-  <meta name="description" content="WebWex создаёт сайты для психологов, сантехников, коучей и репетиторов. Лендинги, каталоги, блоги. Тильда на 20% дешевле.">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z' fill='%237c8f3e'/%3E%3C/svg%3E">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebWex — Сайты и продвижение для самозанятых и малого бизнеса</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- Общие градиенты для лиан -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0" stop-color="#a8bd57"/><stop offset="1" stop-color="#6d7f36"/>
-      </linearGradient>
-      <linearGradient id="stemGrad" x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stop-color="#8a9c46"/><stop offset="1" stop-color="#4a5a28"/>
-      </linearGradient>
-    </defs>
-  </svg>
-
-  <div id="progress"></div>
-
-  <!-- 🌿 Джунгли: лианы по бокам -->
-  <div class="jungle" id="jungle" aria-hidden="true">
-    <div class="vine-side vine-left">
-      <div class="vine-mirror">
-        <svg class="vine" viewBox="0 0 220 1000" preserveAspectRatio="xMidYMin slice" fill="none">
-          <path class="grow stem" pathLength="1" style="--d:.15s;--t:2.6s" d="M96-30C150 60 40 150 92 250C144 350 36 450 88 550C140 650 32 750 84 850C118 918 60 970 76 1040"/>
-          <path class="grow branch" pathLength="1" style="--d:1.15s;--t:1.2s" d="M92 250C130 240 160 210 176 170"/>
-          <path class="grow branch" pathLength="1" style="--d:1.5s;--t:1.2s" d="M88 550C60 540 34 512 24 470"/>
-          <path class="grow branch" pathLength="1" style="--d:1.85s;--t:1.2s" d="M84 850C120 842 150 815 168 775"/>
-          <path class="grow tendril" pathLength="1" style="--d:2.3s;--t:1s" d="M100 120c18-6 30 4 26 18c-3 11-16 12-20 3c-3-7 4-12 9-9"/>
-          <path class="grow tendril" pathLength="1" style="--d:2.5s;--t:1s" d="M92 585c-20 2-30 14-24 26c5 10 18 8 20-1c2-8-6-12-11-8"/>
-          <g class="leaf" style="--d:1.35s" transform="translate(96 60) rotate(24)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:1.5s" transform="translate(70 150) rotate(156)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:1.7s" transform="translate(176 170) rotate(-38)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:1.85s" transform="translate(140 226) rotate(-18)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2s" transform="translate(110 350) rotate(14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.15s" transform="translate(60 450) rotate(168)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.3s" transform="translate(24 470) rotate(-142)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.45s" transform="translate(52 522) rotate(158)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.55s" transform="translate(112 650) rotate(10)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.65s" transform="translate(56 750) rotate(172)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.75s" transform="translate(168 775) rotate(-34)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.85s" transform="translate(132 824) rotate(-14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.95s" transform="translate(96 930) rotate(28)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+    <!-- Анимированные лианы по бокам экрана -->
+    <div class="jungle-vines-left" aria-hidden="true">
+        <svg viewBox="0 0 220 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="vine-stem" d="M-10 0 C 80 150, 20 300, 90 450 C 140 580, 30 720, 70 900" stroke="#3D4A26" stroke-width="8" stroke-linecap="round"/>
+            <path class="vine-stem-thin" d="M10 0 C 120 120, 50 280, 130 420 C 170 520, 60 680, 110 880" stroke="#556B2F" stroke-width="4" stroke-linecap="round"/>
+            <!-- Листья слева -->
+            <path class="leaf leaf-1" d="M55 120 C 95 100, 135 125, 115 155 C 95 175, 65 150, 55 120 Z" fill="#6B8E23"/>
+            <path class="leaf leaf-2" d="M45 260 C 90 245, 130 275, 105 305 C 80 325, 55 295, 45 260 Z" fill="#4B5320"/>
+            <path class="leaf leaf-3" d="M85 430 C 135 410, 175 445, 150 475 C 125 495, 95 465, 85 430 Z" fill="#556B2F"/>
+            <path class="leaf leaf-4" d="M55 610 C 105 595, 145 625, 120 655 C 95 675, 65 645, 55 610 Z" fill="#6B8E23"/>
+            <path class="leaf leaf-5" d="M65 780 C 115 765, 155 795, 130 825 C 105 845, 75 815, 65 780 Z" fill="#3D4A26"/>
         </svg>
-      </div>
     </div>
-    <div class="vine-side vine-right">
-      <div class="vine-mirror">
-        <svg class="vine" viewBox="0 0 220 1000" preserveAspectRatio="xMidYMin slice" fill="none">
-          <path class="grow stem" pathLength="1" style="--d:.15s;--t:2.6s" d="M96-30C150 60 40 150 92 250C144 350 36 450 88 550C140 650 32 750 84 850C118 918 60 970 76 1040"/>
-          <path class="grow branch" pathLength="1" style="--d:1.15s;--t:1.2s" d="M92 250C130 240 160 210 176 170"/>
-          <path class="grow branch" pathLength="1" style="--d:1.5s;--t:1.2s" d="M88 550C60 540 34 512 24 470"/>
-          <path class="grow branch" pathLength="1" style="--d:1.85s;--t:1.2s" d="M84 850C120 842 150 815 168 775"/>
-          <path class="grow tendril" pathLength="1" style="--d:2.3s;--t:1s" d="M100 120c18-6 30 4 26 18c-3 11-16 12-20 3c-3-7 4-12 9-9"/>
-          <path class="grow tendril" pathLength="1" style="--d:2.5s;--t:1s" d="M92 585c-20 2-30 14-24 26c5 10 18 8 20-1c2-8-6-12-11-8"/>
-          <g class="leaf" style="--d:1.35s" transform="translate(96 60) rotate(24)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:1.5s" transform="translate(70 150) rotate(156)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:1.7s" transform="translate(176 170) rotate(-38)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:1.85s" transform="translate(140 226) rotate(-18)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2s" transform="translate(110 350) rotate(14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.15s" transform="translate(60 450) rotate(168)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.3s" transform="translate(24 470) rotate(-142)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.45s" transform="translate(52 522) rotate(158)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.55s" transform="translate(112 650) rotate(10)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.65s" transform="translate(56 750) rotate(172)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.75s" transform="translate(168 775) rotate(-34)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.85s" transform="translate(132 824) rotate(-14)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
-          <g class="leaf" style="--d:2.95s" transform="translate(96 930) rotate(28)"><path d="M0 0C9-13 25-13 34 0C25 13 9 13 0 0Z"/></g>
+
+    <div class="jungle-vines-right" aria-hidden="true">
+        <svg viewBox="0 0 220 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="vine-stem" d="M230 0 C 140 160, 200 310, 130 460 C 80 590, 190 730, 150 900" stroke="#3D4A26" stroke-width="8" stroke-linecap="round"/>
+            <path class="vine-stem-thin" d="M210 0 C 100 130, 170 290, 90 430 C 50 530, 160 690, 110 880" stroke="#556B2F" stroke-width="4" stroke-linecap="round"/>
+            <!-- Листья справа -->
+            <path class="leaf leaf-1" d="M165 130 C 125 110, 85 135, 105 165 C 125 185, 155 160, 165 130 Z" fill="#6B8E23"/>
+            <path class="leaf leaf-2" d="M175 280 C 130 265, 90 295, 115 325 C 140 345, 165 315, 175 280 Z" fill="#4B5320"/>
+            <path class="leaf leaf-3" d="M135 450 C 85 430, 45 465, 70 495 C 95 515, 125 485, 135 450 Z" fill="#556B2F"/>
+            <path class="leaf leaf-4" d="M165 630 C 115 615, 75 645, 100 675 C 125 695, 155 665, 165 630 Z" fill="#6B8E23"/>
+            <path class="leaf leaf-5" d="M155 800 C 105 785, 65 815, 90 845 C 115 865, 145 835, 155 800 Z" fill="#3D4A26"/>
         </svg>
-      </div>
-    </div>
-  </div>
-
-  <!-- Шапка -->
-  <header class="site-header" id="header">
-    <div class="wrap header-inner">
-      <a href="#hero" class="logo">
-        <svg viewBox="0 0 24 24" width="28" height="28"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="url(#leafGrad)"/><path d="M6 18C9 13 13 9 18 6" stroke="#2e3d1c" stroke-width="1.4" fill="none"/></svg>
-        WebWex
-      </a>
-      <nav class="nav" id="nav">
-        <a href="#pricing">Тарифы</a>
-        <a href="#promotion">Продвижение</a>
-        <a href="#support">Поддержка</a>
-        <a href="quiz/index.html">Квиз</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-      <a href="#contacts" class="btn btn-primary btn-sm header-cta">Обсудить проект</a>
-      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <section id="hero">
-      <div class="wrap">
-        <span class="hero-badge">🌿 Веб-студия для самозанятых</span>
-        <h1>
-          <span class="w" style="--i:0">Выращиваем</span>
-          <span class="w" style="--i:1">сайты,</span>
-          <span class="w" style="--i:2">которые</span>
-          <span class="w grad" style="--i:3">приносят</span>
-          <span class="w grad" style="--i:4">клиентов</span>
-        </h1>
-        <p class="hero-sub">WebWex делает сайты для психологов, сантехников, коучей и репетиторов — на Тильде или чистым кодом. Сочный дизайн, живые анимации и заявки уже через неделю.</p>
-        <div class="hero-cta">
-          <a href="quiz/index.html" class="btn btn-primary magnetic">🌿 Пройти квиз за 1 минуту</a>
-          <a href="#pricing" class="btn btn-ghost magnetic">Смотреть тарифы</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><span class="stat-num">−<b data-count="20">0</b>%</span><span class="stat-label">на Тильде</span></div>
-          <div class="stat"><span class="stat-num"><b data-count="14">0</b> дней</span><span class="stat-label">поддержки в подарок</span></div>
-          <div class="stat"><span class="stat-num">от <b data-count="5">0</b></span><span class="stat-label">дней до запуска</span></div>
-          <div class="stat"><span class="stat-num"><b data-count="7">0</b></span><span class="stat-label">вопросов в квизе</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Бегущая строка -->
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <div class="marquee-half">
-          <span>🌿 Психологи</span><span>🌿 Сантехники</span><span>🌿 Коучи</span><span>🌿 Репетиторы</span><span>🌿 Бьюти-мастера</span><span>🌿 Фотографы</span><span>🌿 Электрики</span><span>🌿 Массажисты</span><span>🌿 Логопеды</span><span>🌿 Няни</span><span>🌿 Хендмейд</span><span>🌿 Консультанты</span>
-        </div>
-        <div class="marquee-half">
-          <span>🌿 Психологи</span><span>🌿 Сантехники</span><span>🌿 Коучи</span><span>🌿 Репетиторы</span><span>🌿 Бьюти-мастера</span><span>🌿 Фотографы</span><span>🌿 Электрики</span><span>🌿 Массажисты</span><span>🌿 Логопеды</span><span>🌿 Няни</span><span>🌿 Хендмейд</span><span>🌿 Консультанты</span>
-        </div>
-      </div>
     </div>
 
-    <!-- Для кого -->
-    <section class="section" id="audience">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="kicker">Для кого</span>
-          <h2>Сайты для тех, кто работает на себя</h2>
-          <p class="sec-sub">Знаем специфику вашей ниши и говорим с вашими клиентами на одном языке.</p>
+    <!-- Шапка сайта -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">Web<span>Wex</span></a>
+            <nav class="nav">
+                <a href="#niches">Для кого</a>
+                <a href="#quiz-block">Подбор сайта</a>
+                <a href="#tariffs-sites">Разработка</a>
+                <a href="#tariffs-promo">Продвижение</a>
+                <a href="#tariffs-support">Поддержка</a>
+            </nav>
+            <a href="#contacts" class="btn btn-small">Связаться</a>
         </div>
-        <div class="audience-grid">
-          <article class="card tilt reveal" style="--d:.05s"><span class="a-ico">🧠</span><h3>Психологи и коучи</h3><p>Спокойный дизайн, онлайн-запись и блог, который вызывает доверие ещё до первой сессии.</p></article>
-          <article class="card tilt reveal" style="--d:.12s"><span class="a-ico">🔧</span><h3>Сантехники и мастера</h3><p>Кнопка «Вызвать мастера», прайс и отзывы. Клиент звонит, пока у соседа течёт кран.</p></article>
-          <article class="card tilt reveal" style="--d:.19s"><span class="a-ico">📚</span><h3>Репетиторы</h3><p>Программа, результаты учеников и запись на пробный урок — без лишних переписок.</p></article>
-          <article class="card tilt reveal" style="--d:.05s"><span class="a-ico">💅</span><h3>Бьюти-мастера</h3><p>Портфолио работ, прайс и онлайн-запись, которая заполняет окошки сама.</p></article>
-          <article class="card tilt reveal" style="--d:.12s"><span class="a-ico">📸</span><h3>Фотографы и творческие</h3><p>Галереи, которые хочется листать, и пакеты услуг, которые хочется купить.</p></article>
-          <article class="card tilt reveal" style="--d:.19s"><span class="a-ico">🌿</span><h3>Другие самозанятые</h3><p>Няни, электрики, массажисты, консультанты — соберём сайт под любую нишу.</p></article>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <!-- Как мы работаем -->
-    <section class="section" id="process">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="kicker">Как мы работаем</span>
-          <h2>От заявки до запуска — 4 шага</h2>
-        </div>
-        <div class="steps reveal">
-          <div class="step"><span class="step-num">1</span><h3>Заявка и квиз</h3><p>Проходите квиз или пишете нам в соцсети — подбираем формат сайта.</p></div>
-          <div class="step"><span class="step-num">2</span><h3>Прототип и дизайн</h3><p>Согласуем структуру и стиль. Вы видите сайт до сборки.</p></div>
-          <div class="step"><span class="step-num">3</span><h3>Сборка и анимации</h3><p>Тильда или код, адаптив под телефон, формы и живые анимации.</p></div>
-          <div class="step"><span class="step-num">4</span><h3>Запуск и поддержка</h3><p>Публикуем сайт и дарим 2 недели техподдержки.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 🌿 Блок-тизер квиза -->
-    <section class="section" id="quiz-block">
-      <div class="wrap">
-        <div class="quiz-cta reveal reveal-zoom">
-          <div class="quiz-cta-text">
-            <span class="kicker">Квиз · 1 минута</span>
-            <h2>Не знаете, какой сайт вам нужен?</h2>
-            <p>Ответьте на 7 вопросов — покажем идеальный формат сайта под вашу нишу, цели и бюджет. Сразу с ценой и скидкой −20% на Тильде.</p>
-            <a href="quiz/index.html" class="btn btn-primary magnetic">🌿 Пройти квиз</a>
-          </div>
-          <div class="orbit" aria-hidden="true">
-            <div class="orbit-core">?</div>
-            <span class="orbit-item" style="--a:0deg;--t:14s">💻</span>
-            <span class="orbit-item" style="--a:90deg;--t:14s">📱</span>
-            <span class="orbit-item" style="--a:180deg;--t:14s">✉️</span>
-            <span class="orbit-item" style="--a:270deg;--t:14s">🌿</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Тарифы на сайты -->
-    <section class="section" id="pricing">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="kicker">Тарифы на сайты</span>
-          <h2>Выберите свой сайт</h2>
-          <p class="sec-sub">Код — полная уникальность. Тильда — быстрее и на 20% дешевле: цена со скидкой уже на кнопке.</p>
-        </div>
-        <div class="plans-grid">
-          <article class="card plan tilt reveal" style="--d:.05s">
-            <span class="kicker">Тариф «Росток»</span>
-            <h3>Одностраничный сайт</h3>
-            <div class="price"><small>от</small> 9 999 ₽</div>
-            <ul>
-              <li>1 продающая страница</li>
-              <li>Адаптив под все экраны</li>
-              <li>Форма заявки + кнопки мессенджеров</li>
-              <li>Базовая SEO-настройка</li>
-              <li>Запуск от 5 дней</li>
-              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
-            </ul>
-            <div class="plan-btns">
-              <a href="#contacts" class="btn btn-primary" data-order="landing" data-platform="code">Заказать</a>
-              <a href="#contacts" class="btn btn-tilda" data-order="landing" data-platform="tilda">Заказать на Тильде<small>−20% · от 7 999 ₽</small></a>
+    <!-- Первый экран (Hero) -->
+    <section class="hero">
+        <div class="container hero-content">
+            <div class="badge fade-up">Разработка кодом и на Tilda • Продвижение • Поддержка</div>
+            <h1 class="fade-up delay-1">Выведем ваш бизнес из цифровых джунглей к стабильным заявкам</h1>
+            <p class="hero-subtitle fade-up delay-2">
+                Студия <strong>WebWex</strong> создает продающие сайты для психологов, коучей, репетиторов, сантехников и малого бизнеса. Выбирайте: чистый индивидуальный код или быстрый запуск на Tilda со скидкой 20%.
+            </p>
+            <div class="hero-actions fade-up delay-3">
+                <a href="#tariffs-sites" class="btn btn-primary pulse-anim">Выбрать тариф</a>
+                <a href="quiz/index.html" class="btn btn-outline">Пройти квиз за 1 минуту</a>
             </div>
-          </article>
+        </div>
+    </section>
 
-          <article class="card plan popular tilt reveal" style="--d:.12s">
-            <span class="badge">Выбирают чаще</span>
-            <span class="kicker">Тариф «Лиана»</span>
-            <h3>Многостраничный сайт</h3>
-            <div class="price"><small>от</small> 18 999 ₽</div>
-            <ul>
-              <li>До 7 страниц: услуги, обо мне, цены</li>
-              <li>Единый стиль и живые анимации</li>
-              <li>Формы заявок на каждой странице</li>
-              <li>SEO-структура под поиск</li>
-              <li>Запуск от 10 дней</li>
-              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
-            </ul>
-            <div class="plan-btns">
-              <a href="#contacts" class="btn btn-primary" data-order="multi" data-platform="code">Заказать</a>
-              <a href="#contacts" class="btn btn-tilda" data-order="multi" data-platform="tilda">Заказать на Тильде<small>−20% · от 15 199 ₽</small></a>
+    <!-- Блок: Для кого мы работаем -->
+    <section id="niches" class="section niches-section">
+        <div class="container">
+            <h2 class="section-title reveal">Создаем сайты под задачи вашей ниши</h2>
+            <p class="section-desc reveal">Понимаем специфику работы самозанятых и локального бизнеса — знаем, что важно вашим клиентам.</p>
+            
+            <div class="niches-grid">
+                <div class="niche-card reveal">
+                    <div class="niche-icon">🧠</div>
+                    <h3>Психологи и коучи</h3>
+                    <p>Доверительная подача, удобная запись на сессии, блок с дипломами, отзывами и личный блог для прогрева аудитории.</p>
+                </div>
+                <div class="niche-card reveal">
+                    <div class="niche-icon">📚</div>
+                    <h3>Репетиторы и эксперты</h3>
+                    <p>Презентация методик, расписание, онлайн-тесты, кейсы учеников и быстрая связь в мессенджерах.</p>
+                </div>
+                <div class="niche-card reveal">
+                    <div class="niche-icon">🔧</div>
+                    <h3>Сантехники и мастера</h3>
+                    <p>Максимальная конверсия с рекламы, понятный прайс-лист, выезд по районам города и кнопка срочного вызова.</p>
+                </div>
+                <div class="niche-card reveal">
+                    <div class="niche-icon">🏪</div>
+                    <h3>Малый бизнес и услуги</h3>
+                    <p>Каталоги товаров, квизы для расчета стоимости, SEO-оптимизация и интеграция с соцсетями.</p>
+                </div>
             </div>
-          </article>
+        </div>
+    </section>
 
-          <article class="card plan tilt reveal" style="--d:.19s">
-            <span class="kicker">Тариф «Крона»</span>
-            <h3>Сайт-каталог</h3>
-            <div class="price">21 999 ₽</div>
-            <ul>
-              <li>Карточки товаров и услуг</li>
-              <li>Фильтры, поиск, категории</li>
-              <li>Корзина или заявка в 1 клик</li>
-              <li>Обучение управлению каталогом</li>
-              <li>Запуск от 12 дней</li>
-              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
-            </ul>
-            <div class="plan-btns">
-              <a href="#contacts" class="btn btn-primary" data-order="catalog" data-platform="code">Заказать</a>
-              <a href="#contacts" class="btn btn-tilda" data-order="catalog" data-platform="tilda">Заказать на Тильде<small>−20% · 17 599 ₽</small></a>
+    <!-- Блок с квизом (ведет на отдельную страницу) -->
+    <section id="quiz-block" class="section quiz-banner-section">
+        <div class="container">
+            <div class="quiz-banner reveal">
+                <div class="quiz-banner-text">
+                    <span class="quiz-tag">Интерактивный подбор</span>
+                    <h2>Не знаете, какой сайт подойдет именно вам?</h2>
+                    <p>Ответьте на 5 простых вопросов о вашей нише и целях. Наш алгоритм определит оптимальный тип сайта, формат разработки (Код или Tilda) и рассчитает примерную стоимость.</p>
+                    <a href="quiz/index.html" class="btn btn-light pulse-anim">Пройти квиз и узнать результат →</a>
+                </div>
+                <div class="quiz-banner-visual">
+                    <div class="floating-card card-1">Landing Page?</div>
+                    <div class="floating-card card-2">Сайт-каталог?</div>
+                    <div class="floating-card card-3">Tilda или Код?</div>
+                </div>
             </div>
-          </article>
+        </div>
+    </section>
 
-          <article class="card plan tilt reveal" style="--d:.26s">
-            <span class="kicker">Тариф «Баобаб»</span>
-            <h3>Сайт-блог</h3>
-            <div class="price"><small>от</small> 23 999 ₽</div>
-            <ul>
-              <li>Статьи, рубрики, теги</li>
-              <li>Подписка и соцсети</li>
-              <li>SEO под информационные запросы</li>
-              <li>Удобная админка — пишите без программиста</li>
-              <li>Запуск от 12 дней</li>
-              <li class="gift">🎁 + 2 недели техподдержки бесплатно</li>
-            </ul>
-            <div class="plan-btns">
-              <a href="#contacts" class="btn btn-primary" data-order="blog" data-platform="code">Заказать</a>
-              <a href="#contacts" class="btn btn-tilda" data-order="blog" data-platform="tilda">Заказать на Тильде<small>−20% · от 19 199 ₽</small></a>
+    <!-- Тарифы на разработку сайтов -->
+    <section id="tariffs-sites" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Тарифы на создание сайтов</h2>
+            <p class="section-desc reveal">Каждый проект можно реализовать индивидуальным кодом (HTML/CSS/JS) или собрать на Tilda на 20% дешевле.</p>
+
+            <div class="tariffs-grid four-cols">
+                <!-- Тариф 1 -->
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Старт</span>
+                        <h3>Одностраничный сайт</h3>
+                        <p class="tariff-sub">Landing Page</p>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 9 999 ₽</span>
+                        <span class="price-tilda">на Tilda: от 7 999 ₽ (-20%)</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li>Продающая структура под 1 услугу или специалиста</li>
+                        <li>Адаптация под смартфоны и планшеты</li>
+                        <li>Анимация появления блоков</li>
+                        <li>Подключение форм заявок и мессенджеров</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Одностраничный сайт (Код) — от 9 999 ₽">Заказать</a>
+                        <a href="#contacts" class="btn btn-tilda" data-order="Одностраничный сайт (Tilda -20%) — от 7 999 ₽">Заказать на Тильде (-20%)</a>
+                    </div>
+                </div>
+
+                <!-- Тариф 2 -->
+                <div class="tariff-card popular reveal">
+                    <div class="popular-ribbon">Выбор клиентов</div>
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Бизнес</span>
+                        <h3>Многостраничный сайт</h3>
+                        <p class="tariff-sub">Корпоративный / Экспертный</p>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 18 999 ₽</span>
+                        <span class="price-tilda">на Tilda: от 15 199 ₽ (-20%)</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li>До 5–7 уникальных страниц (Услуги, О себе, Кейсы, Цены)</li>
+                        <li>Удобная навигация и продуманный UX</li>
+                        <li>Базовая SEO-оптимизация под поиск</li>
+                        <li>Плавные микроанимации интерфейса</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Многостраничный сайт (Код) — от 18 999 ₽">Заказать</a>
+                        <a href="#contacts" class="btn btn-tilda" data-order="Многостраничный сайт (Tilda -20%) — от 15 199 ₽">Заказать на Тильде (-20%)</a>
+                    </div>
+                </div>
+
+                <!-- Тариф 3 -->
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Витрина</span>
+                        <h3>Сайт-каталог</h3>
+                        <p class="tariff-sub">Для товаров и услуг с прайсом</p>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 21 999 ₽</span>
+                        <span class="price-tilda">на Tilda: от 17 599 ₽ (-20%)</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li>Карточки товаров или пакетных услуг с фильтрами</li>
+                        <li>Удобное редактирование позиций и цен</li>
+                        <li>Форма быстрого заказа в 1 клик</li>
+                        <li>Адаптивный дизайн и высокая скорость загрузки</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Сайт-каталог (Код) — от 21 999 ₽">Заказать</a>
+                        <a href="#contacts" class="btn btn-tilda" data-order="Сайт-каталог (Tilda -20%) — от 17 599 ₽">Заказать на Тильде (-20%)</a>
+                    </div>
+                </div>
+
+                <!-- Тариф 4 -->
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Эксперт + Бонус</span>
+                        <h3>Сайт-блог</h3>
+                        <p class="tariff-sub">Для личного бренда и SEO</p>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 23 999 ₽</span>
+                        <span class="price-tilda">на Tilda: от 19 199 ₽ (-20%)</span>
+                    </div>
+                    <div class="bonus-pill">🎁 + Первые 2 недели техподдержки бесплатно!</div>
+                    <ul class="tariff-features">
+                        <li>Удобная система публикации статей и кейсов</li>
+                        <li>Рубрикатор, теги и вовлекающие блоки записи</li>
+                        <li>Идеально для психологов, коучей и репетиторов</li>
+                        <li><strong>2 недели бесплатной техподдержки после запуска</strong></li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Сайт-блог (Код + 2 нед. поддержки) — от 23 999 ₽">Заказать</a>
+                        <a href="#contacts" class="btn btn-tilda" data-order="Сайт-блог (Tilda -20% + 2 нед. поддержки) — от 19 199 ₽">Заказать на Тильде (-20%)</a>
+                    </div>
+                </div>
             </div>
-          </article>
         </div>
-        <div class="bonus-banner reveal">🎁 К каждому сайту — первые 2 недели техподдержки бесплатно. Дальше — по тарифам ниже.</div>
-      </div>
     </section>
 
-    <!-- Продвижение -->
-    <section class="section" id="promotion">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="kicker">Продвижение</span>
-          <h2>Чтобы клиенты находили вас сами</h2>
-          <p class="sec-sub">Стартовые цены — точную смету соберём после бесплатного аудита вашей ниши.</p>
+    <!-- Тарифы на продвижение -->
+    <section id="tariffs-promo" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title reveal">Тарифы на продвижение</h2>
+            <p class="section-desc reveal">Привлекаем целевых клиентов из поиска и соцсетей, чтобы ваш сайт приносил заявки с первых дней.</p>
+
+            <div class="tariffs-grid three-cols">
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Тропа</span>
+                        <h3>SEO-Старт</h3>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 7 990 ₽ / мес</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li>Сбор ключевых запросов по вашей нише и городу</li>
+                        <li>Внутренняя SEO-оптимизация страниц и мета-тегов</li>
+                        <li>Регистрация в Яндекс Бизнес и Вебмастере</li>
+                        <li>Ежемесячный отчет по позициям</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Продвижение: тариф «SEO-Старт»">Заказать</a>
+                    </div>
+                </div>
+
+                <div class="tariff-card popular reveal">
+                    <div class="popular-ribbon">Быстрые заявки</div>
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Сафари</span>
+                        <h3>Трафик-Плюс</h3>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 12 990 ₽ / мес</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li>Настройка и ведение рекламы в Яндекс Директ</li>
+                        <li>Анализ конкурентов и отсечение нецелевых кликов</li>
+                        <li>А/Б тестирование объявлений и заголовков</li>
+                        <li>Повышение конверсии посадочной страницы</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Продвижение: тариф «Трафик-Плюс»">Заказать</a>
+                    </div>
+                </div>
+
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Джунгли Pro</span>
+                        <h3>Комплексный Рост</h3>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">от 19 990 ₽ / мес</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li>Одновременное ведение SEO и контекстной рекламы</li>
+                        <li>Упаковка и ведение трафика из ВКонтакте</li>
+                        <li>Настройка сквозной аналитики заявок</li>
+                        <li>Еженедельная корректировка стратегии</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Продвижение: тариф «Комплексный Рост»">Заказать</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="trio-grid">
-          <article class="card plan tilt reveal" style="--d:.05s">
-            <span class="kicker">Тариф «Всходы»</span>
-            <div class="price"><small>от</small> 4 999 ₽ <small>/ мес</small></div>
-            <ul>
-              <li>Яндекс Бизнес и карты</li>
-              <li>Базовое SEO сайта</li>
-              <li>Подключение аналитики</li>
-              <li>Отчёт раз в месяц</li>
-            </ul>
-            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="promo1">Заказать</a></div>
-          </article>
-          <article class="card plan popular tilt reveal" style="--d:.12s">
-            <span class="badge">Хит</span>
-            <span class="kicker">Тариф «Заросли»</span>
-            <div class="price"><small>от</small> 9 999 ₽ <small>/ мес</small></div>
-            <ul>
-              <li>Всё из «Всходов»</li>
-              <li>SEO по вашим запросам</li>
-              <li>2 статьи в месяц</li>
-              <li>Размещение в справочниках</li>
-              <li>Отчёт каждые 2 недели</li>
-            </ul>
-            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="promo2">Заказать</a></div>
-          </article>
-          <article class="card plan tilt reveal" style="--d:.19s">
-            <span class="kicker">Тариф «Джунгли»</span>
-            <div class="price"><small>от</small> 19 999 ₽ <small>/ мес</small></div>
-            <ul>
-              <li>Всё из «Зарослей»</li>
-              <li>Настройка и ведение рекламы</li>
-              <li>Оформление соцсетей</li>
-              <li>A/B-тесты страниц</li>
-              <li>Личный менеджер</li>
-            </ul>
-            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="promo3">Заказать</a></div>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <!-- Техподдержка -->
-    <section class="section" id="support">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="kicker">Техподдержка</span>
-          <h2>Ваш сайт всегда в форме</h2>
-          <p class="sec-sub">Доработки, правки и обновления. Часы обновляются каждый месяц.</p>
+    <!-- Тарифы на техподдержку -->
+    <section id="tariffs-support" class="section">
+        <div class="container">
+            <h2 class="section-title reveal">Тарифы на техподдержку</h2>
+            <p class="section-desc reveal">Следим за стабильной работой сайта, обновляем тексты, цены и добавляем новые блоки по вашему запросу.</p>
+
+            <div class="tariffs-grid three-cols">
+                <!-- Поддержка 1 -->
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Базовый уход</span>
+                        <h3>Росток (Free)</h3>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">0 ₽ / мес</span>
+                        <span class="price-sub">Free тариф</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li><strong>30 минут доработок в месяц</strong></li>
+                        <li>Замена текста, фото или номера телефона</li>
+                        <li>Проверка работоспособности форм заявок</li>
+                        <li>Ответ в рабочее время в мессенджерах</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Техподдержка: тариф «Росток (Free — 30 мин/мес)»">Заказать</a>
+                    </div>
+                </div>
+
+                <!-- Поддержка 2 -->
+                <div class="tariff-card popular reveal">
+                    <div class="popular-ribbon">Оптимально</div>
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Активный рост</span>
+                        <h3>Лиана Оптима</h3>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">4 999 ₽ / мес</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li><strong>1.5 часа доработок в месяц</strong></li>
+                        <li>Добавление новых услуг, отзывов и акций</li>
+                        <li>Мониторинг домена, SSL-сертификата и хостинга</li>
+                        <li>Приоритетная реакция на задачи</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Техподдержка: тариф «Лиана Оптима (4 999 ₽ — 1.5 ч/мес)»">Заказать</a>
+                    </div>
+                </div>
+
+                <!-- Поддержка 3 -->
+                <div class="tariff-card reveal">
+                    <div class="tariff-header">
+                        <span class="tariff-badge">Максимум</span>
+                        <h3>Хозяин Джунглей</h3>
+                    </div>
+                    <div class="tariff-price">
+                        <span class="price-main">9 999 ₽ / мес</span>
+                    </div>
+                    <ul class="tariff-features">
+                        <li><strong>4 часа доработок в месяц</strong></li>
+                        <li>Создание новых страниц, квизов и баннеров</li>
+                        <li>Резервное копирование и защита от сбоев</li>
+                        <li>Личный менеджер и срочные правки день в день</li>
+                    </ul>
+                    <div class="tariff-buttons">
+                        <a href="#contacts" class="btn btn-primary" data-order="Техподдержка: тариф «Хозяин Джунглей (9 999 ₽ — 4 ч/мес)»">Заказать</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="trio-grid">
-          <article class="card plan tilt reveal" style="--d:.05s">
-            <span class="kicker">Тариф «Роса»</span>
-            <div class="price">Free</div>
-            <div class="hours">30 минут</div>
-            <p class="hours-sub">доработок в месяц</p>
-            <ul>
-              <li>Мелкие правки текста и фото</li>
-              <li>Ответы на вопросы в чате</li>
-              <li>Идеально на старте</li>
-            </ul>
-            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="sup0">Заказать</a></div>
-          </article>
-          <article class="card plan popular tilt reveal" style="--d:.12s">
-            <span class="badge">Оптимально</span>
-            <span class="kicker">Тариф «Ручей»</span>
-            <div class="price">4 999 ₽ <small>/ мес</small></div>
-            <div class="hours">1,5 часа</div>
-            <p class="hours-sub">доработок в месяц</p>
-            <ul>
-              <li>Обновление цен и контента</li>
-              <li>Ежемесячный бэкап</li>
-              <li>Приоритетные ответы</li>
-            </ul>
-            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="sup1">Заказать</a></div>
-          </article>
-          <article class="card plan tilt reveal" style="--d:.19s">
-            <span class="kicker">Тариф «Водопад»</span>
-            <div class="price">9 999 ₽ <small>/ мес</small></div>
-            <div class="hours">4 часа</div>
-            <p class="hours-sub">доработок в месяц</p>
-            <ul>
-              <li>Новые блоки и страницы</li>
-              <li>Мини-аналитика каждый месяц</li>
-              <li>Срочные правки вне очереди</li>
-            </ul>
-            <div class="plan-btns"><a href="#contacts" class="btn btn-primary" data-order="sup2">Заказать</a></div>
-          </article>
-        </div>
-      </div>
     </section>
 
-    <!-- Контакты -->
-    <section class="section" id="contacts">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <span class="kicker">Контакты</span>
-          <h2>Обсудим ваш проект?</h2>
-          <p class="sec-sub">Напишите в удобную соцсеть — поможем выбрать тариф и бесплатно посчитаем смету.</p>
+    <!-- Блок обратной связи (ВК и Инстаграм) -->
+    <section id="contacts" class="section contacts-section">
+        <div class="container">
+            <div class="contacts-box reveal">
+                <h2>Готовы запустить или прокачать ваш сайт?</h2>
+                <p id="selected-tariff-text" class="selected-tariff-note">Выберите удобную соцсеть — напишите нам в личные сообщения, и мы обсудим ваш проект в течение 15 минут!</p>
+                
+                <div class="social-buttons">
+                    <a href="https://vk.ru/club241697288" target="_blank" rel="noopener noreferrer" class="btn-social btn-vk">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M13.162 18.994c.609 0 .858-.406.851-.915-.031-1.917.714-2.949 2.059-1.604 1.488 1.488 1.796 2.519 3.603 2.519h3.2c.808 0 1.126-.26 1.126-.668 0-.863-1.421-2.386-2.625-3.504-1.686-1.565-1.765-1.602-.313-3.486 1.801-2.339 4.157-5.336 2.073-5.336h-3.981c-.772 0-.828.435-1.103 1.083-.995 2.347-2.886 5.387-3.604 4.922-.751-.485-.407-2.406-.35-5.261.015-.754.011-1.271-1.141-1.539-.629-.145-1.241-.205-1.809-.205-2.273 0-3.841.953-2.95 1.119 1.571.293 1.42 3.692 1.054 5.16-.638 2.556-3.036-2.024-4.035-4.305-.241-.548-.315-.974-1.175-.974h-3.255c-.492 0-.787.16-.787.516 0 .602 2.96 6.72 5.786 9.77 2.756 2.975 5.48 2.708 7.376 2.708z"/></svg>
+                        Написать во ВКонтакте
+                    </a>
+
+                    <a href="https://www.instagram.com/invites/contact/utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=sjn376n" target="_blank" rel="noopener noreferrer" class="btn-social btn-ig">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        Написать в Instagram
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="order-chip" id="orderChip">🌿 Ваш выбор: <b id="orderChipText"></b></div>
-        <div class="contact-grid">
-          <a class="contact-card reveal" style="--d:.05s" href="https://vk.ru/club241697288" target="_blank" rel="noopener">
-            <span class="c-ico vk">VK</span>
-            <span><b>ВКонтакте</b><small>Написать в группу WebWex</small></span>
-            <span class="c-arrow">→</span>
-          </a>
-          <a class="contact-card reveal" style="--d:.12s" href="https://www.instagram.com/invites/contact/utm_source=ig_contact_invite&amp;utm_medium=copy_link&amp;utm_content=sjn376n" target="_blank" rel="noopener">
-            <span class="c-ico ig">
-              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.3" cy="6.7" r="1.3" fill="currentColor" stroke="none"/></svg>
-            </span>
-            <span><b>Instagram*</b><small>Написать в Direct</small></span>
-            <span class="c-arrow">→</span>
-          </a>
-        </div>
-        <p class="footnote">*Instagram принадлежит Meta, признанной экстремистской организацией и запрещённой на территории РФ.</p>
-      </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <a href="#hero" class="logo">
-        <svg viewBox="0 0 24 24" width="24" height="24"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="url(#leafGrad)"/></svg>
-        WebWex
-      </a>
-      <nav class="footer-nav">
-        <a href="#pricing">Тарифы</a><a href="quiz/index.html">Квиз</a><a href="#contacts">Контакты</a>
-      </nav>
-      <p>© <span id="year"></span> WebWex · Сайты для самозанятых · Сделано с 🌿</p>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 WebWex — Разработка и продвижение сайтов для самозанятых и малого бизнеса.</p>
+        </div>
+    </footer>
 
-  <button id="toTop" aria-label="Наверх">
-    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M12 19V6M6 12l6-6 6 6" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
-
-  <script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
