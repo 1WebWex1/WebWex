@@ -1,0 +1,333 @@
+:root {
+    --bg-white: #FAFBF7;
+    --olive-light: #E8EDE0;
+    --olive-main: #6B8E23;
+    --olive-medium: #556B2F;
+    --swamp-dark: #2C351B;
+    --text-main: #232A16;
+    --text-muted: #525E3D;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-white);
+    color: var(--text-main);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Лианы по бокам квиза */
+.vine-bg-left,
+.vine-bg-right {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 160px;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.8;
+}
+
+.vine-bg-left {
+    left: 0;
+    transform: translateX(-100%);
+    animation: vineInLeft 1.2s ease-out forwards;
+}
+
+.vine-bg-right {
+    right: 0;
+    transform: translateX(100%);
+    animation: vineInRight 1.2s ease-out forwards;
+}
+
+.vine-bg-left svg,
+.vine-bg-right svg {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes vineInLeft {
+    to { transform: translateX(0); }
+}
+
+@keyframes vineInRight {
+    to { transform: translateX(0); }
+}
+
+.quiz-wrapper {
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    text-decoration: none;
+    color: var(--swamp-dark);
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.back-link:hover {
+    color: var(--olive-main);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--swamp-dark);
+}
+
+.logo span {
+    color: var(--olive-main);
+}
+
+.quiz-card {
+    background: #FFFFFF;
+    border-radius: 26px;
+    padding: 40px;
+    box-shadow: 0 18px 45px rgba(44, 53, 27, 0.12);
+    border: 2px solid var(--olive-light);
+    animation: cardAppear 0.6s ease;
+}
+
+@keyframes cardAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Прогресс-бар */
+.progress-wrap {
+    margin-bottom: 30px;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background: var(--olive-light);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 20%;
+    background: linear-gradient(90deg, var(--olive-main), var(--swamp-dark));
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+/* Вопросы */
+.question-title {
+    font-size: clamp(20px, 3vw, 26px);
+    color: var(--swamp-dark);
+    margin-bottom: 24px;
+    line-height: 1.3;
+}
+
+.options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.option-btn {
+    background: var(--bg-white);
+    border: 2px solid var(--olive-light);
+    border-radius: 14px;
+    padding: 16px 20px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.option-btn:hover {
+    border-color: var(--olive-main);
+    background: var(--olive-light);
+    transform: translateX(6px);
+}
+
+.option-btn.selected {
+    background: var(--swamp-dark);
+    border-color: var(--swamp-dark);
+    color: #fff;
+}
+
+.quiz-controls {
+    margin-top: 26px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.btn-prev {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-prev:hover:not(:disabled) {
+    border-color: var(--swamp-dark);
+    color: var(--swamp-dark);
+}
+
+.btn-prev:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+/* Экран результата */
+.hidden {
+    display: none;
+}
+
+.result-screen {
+    text-align: center;
+    animation: cardAppear 0.5s ease;
+}
+
+.result-badge {
+    display: inline-block;
+    background: var(--olive-light);
+    color: var(--swamp-dark);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.result-screen h2 {
+    font-size: 28px;
+    color: var(--swamp-dark);
+    margin-bottom: 14px;
+}
+
+.result-desc {
+    color: var(--text-muted);
+    font-size: 15px;
+    margin-bottom: 24px;
+}
+
+.price-box {
+    background: var(--bg-white);
+    border: 2px solid var(--olive-light);
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.price-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.price-item.tilda {
+    color: var(--olive-medium);
+    border-top: 1px dashed var(--olive-light);
+    padding-top: 12px;
+}
+
+.result-bonus {
+    background: #E2F0CB;
+    color: var(--swamp-dark);
+    font-weight: 700;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+}
+
+.result-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-main {
+    display: block;
+    background: var(--swamp-dark);
+    color: #fff;
+    text-decoration: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 16px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-main:hover {
+    background: var(--olive-main);
+    transform: translateY(-2px);
+}
+
+.btn-restart {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.btn-restart:hover {
+    color: var(--swamp-dark);
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .quiz-card {
+        padding: 26px 20px;
+    }
+    .vine-bg-left, .vine-bg-right {
+        width: 70px;
+        opacity: 0.4;
+    }
+}
