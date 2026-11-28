@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Подбор сайта — Квиз от WebWex</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+    <!-- Лианы на фоне страницы квиза -->
+    <div class="vine-bg-left" aria-hidden="true">
+        <svg viewBox="0 0 180 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-10 0 C 70 150, 15 320, 80 480 C 120 600, 25 700, 60 800" stroke="#3D4A26" stroke-width="7" stroke-linecap="round"/>
+            <path d="M45 140 C 90 120, 125 145, 105 175 C 85 195, 55 170, 45 140 Z" fill="#6B8E23"/>
+            <path d="M65 390 C 115 370, 150 400, 125 430 C 100 450, 75 420, 65 390 Z" fill="#556B2F"/>
+            <path d="M45 630 C 95 610, 130 640, 105 670 C 80 690, 55 660, 45 630 Z" fill="#6B8E23"/>
+        </svg>
+    </div>
+
+    <div class="vine-bg-right" aria-hidden="true">
+        <svg viewBox="0 0 180 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M190 0 C 110 150, 165 320, 100 480 C 60 600, 155 700, 120 800" stroke="#3D4A26" stroke-width="7" stroke-linecap="round"/>
+            <path d="M135 160 C 90 140, 55 165, 75 195 C 95 215, 125 190, 135 160 Z" fill="#6B8E23"/>
+            <path d="M115 410 C 65 390, 30 420, 55 450 C 80 470, 105 440, 115 410 Z" fill="#556B2F"/>
+            <path d="M135 650 C 85 630, 50 660, 75 690 C 100 710, 125 680, 135 650 Z" fill="#6B8E23"/>
+        </svg>
+    </div>
+
+    <div class="quiz-wrapper">
+        <header class="quiz-header">
+            <a href="../index.html" class="back-link">← Вернуться на главную WebWex</a>
+            <div class="logo">Web<span>Wex</span></div>
+        </header>
+
+        <main class="quiz-card" id="quiz-container">
+            <!-- Прогресс бар -->
+            <div class="progress-wrap" id="progress-wrap">
+                <div class="progress-info">
+                    <span id="step-counter">Вопрос 1 из 5</span>
+                    <span id="step-percent">20%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Блок с вопросами -->
+            <div id="question-screen">
+                <h1 class="question-title" id="question-title">Загрузка вопроса...</h1>
+                <div class="options-list" id="options-list"></div>
+
+                <div class="quiz-controls">
+                    <button type="button" class="btn-prev" id="btn-prev" disabled>Назад</button>
+                </div>
+            </div>
+
+            <!-- Блок с результатом -->
+            <div id="result-screen" class="result-screen hidden">
+                <span class="result-badge">Рекомендация WebWex готова</span>
+                <h2 id="result-title">Вам идеально подойдет...</h2>
+                <p class="result-desc" id="result-desc"></p>
+
+                <div class="price-box">
+                    <div class="price-item">
+                        <span>Разработка кодом:</span>
+                        <strong id="result-price-code"></strong>
+                    </div>
+                    <div class="price-item tilda">
+                        <span>Разработка на Tilda (-20%):</span>
+                        <strong id="result-price-tilda"></strong>
+                    </div>
+                </div>
+
+                <div class="result-bonus" id="result-bonus"></div>
+
+                <div class="result-actions">
+                    <a href="../index.html#contacts" id="order-quiz-btn" class="btn-main">Заказать этот сайт</a>
+                    <button type="button" class="btn-restart" id="btn-restart">Пройти квиз заново</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
